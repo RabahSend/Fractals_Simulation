@@ -1,5 +1,5 @@
 # Fractals of Mandelbrot simulation.
-_This is a Mandelbrot fractal simulator written in C++ for Linux. It generates fractals by iterating the suite_ $z_{n+1} = z_n^p + c$ _for each pixel in the image, where_ $z$ _and_ $c$ _are complex numbers, and_ $n$ _the index of the sequence. If the absolute value of_ $z$ _exceeds a certain threshold, the pixel is colored based on how many iterations were required to exceed the threshold._
+_This is a Mandelbrot fractal simulator written in C++ for Linux. It generates fractals by iterating the suite_ $z_{n+1} = z_n^p + c$ _for each pixel in the window, where_ $z$ _and_ $c$ _are complex numbers, and_ $n$ _the index of the sequence. If the absolute value of_ $z$ _exceeds a certain threshold, the pixel is colored based on how many iterations were required to exceed the threshold._
 
 Requirements:
 
