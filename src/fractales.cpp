@@ -20,18 +20,27 @@ std::complex<double> getPower(std::complex<double> z, const int p) {
     return result;
 }
 
+void display_loading_bar(int time_loading, std::string& sep) {
+    std::cout << "\033[0G"; // Put the cursor at the begin of the line
+    std::cout << sep;
+    sep.replace(time_loading + 1, 1, "#"); // Replace the next space by a #
+    std::cout.flush(); //clean the line
+}
+
 void Fractale::trace_fractale() {
     std::complex<double> z, c;
 
     // We calculate the scale of the fractal, based on the minimum and maximum values for x and y,
     // and the window size
     double xscale = (xmax - xmin) / getWidth(), yscale = (ymax - ymin) / getHeight();
-
-    int count;
+    std::string separator = "[        ]";
+    int count, time_loading;
     std::cout << "In progress. . ." << std::endl;
     for (int i = 0; i < getWidth(); ++i) {
         for (int k = 0; k < getHeight(); ++k) {
-
+            // The loading bar will be "incremented" every 100 pixels scanned.
+            if (i == time_loading * 100 && k == time_loading* 100) display_loading_bar(time_loading, separator);
+            
             // we calculate the real and imaginary part of the number c, based on the pixel location
             // and zoom and position values
             c.real(k * xscale + xmin);
@@ -63,8 +72,9 @@ void Fractale::trace_fractale() {
             drawPoint(i, k);
         }
     }
-
-    std::cout << "Finished !" << std::endl;
+    
+    display_loading_bar(time_loading, separator); // We display the end of the loading bar.
+    std::cout << std::endl << "finished !" << std::endl;
 }
 
 void Fractale::keyPress(EZKeySym keysym) {
