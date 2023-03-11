@@ -3,7 +3,7 @@ _This is a Mandelbrot fractal simulator written in C++ for Linux. It generates f
 
 Requirements:
 
-- C++ compiler (tested with g++ 9.3.0)
+- C++ compiler (tested with g++ 11.3.0)
 - [EZ-Draw++](http://eric.remy3.free.fr/EZ-Draw++/EZ-Draw++-1.2-6/html/index.html) library
 - GNU Make (optional)
 
